@@ -52,6 +52,9 @@ class MainStackView: UIStackView {
         let buttonPoint = createButton(title: ",", tag: 10, color: .gray)
         let buttonEqual = createButton(title: "=", tag: 11, color: .orange)
         let firstStackView = UIStackView(subviews: [button0, buttonPoint, buttonEqual])
+        button0.widthAnchor.constraint(equalTo: firstStackView.widthAnchor, multiplier: 0.5).isActive = true
+        buttonPoint.widthAnchor.constraint(equalTo: buttonEqual.widthAnchor, multiplier: 1).isActive = true
+        firstStackView.distribution = .fill
         
         let button1 = createButton(title: "1", tag: 1, color: .gray)
         let button2 = createButton(title: "2", tag: 2, color: .gray)
