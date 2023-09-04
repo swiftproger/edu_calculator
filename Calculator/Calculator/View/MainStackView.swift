@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol MainStackViewProtocol: AnyObject {
+    func topNumberButton(tag: Int)
+    func topActionButton(tag: Int)
+}
+
 class MainStackView: UIStackView {
     
     private var stackViewArray = [UIStackView]()
+    
+    weak var delegate: MainStackViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
