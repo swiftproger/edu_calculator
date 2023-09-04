@@ -17,7 +17,6 @@ class MainStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func createButton(title: String, tag: Int, color: UIColor) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)

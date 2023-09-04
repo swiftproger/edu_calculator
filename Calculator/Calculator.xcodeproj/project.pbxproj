@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F131BD82AA63A9800F8308F /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F131BD72AA63A9800F8308F /* MainStackView.swift */; };
+		1F131BDC2AA63DC000F8308F /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F131BDB2AA63DC000F8308F /* UIStackView + Extension.swift */; };
 		1F88A6592AA11FB7003B9319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88A6582AA11FB7003B9319 /* AppDelegate.swift */; };
 		1F88A65B2AA11FB7003B9319 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88A65A2AA11FB7003B9319 /* SceneDelegate.swift */; };
 		1F88A65D2AA11FB7003B9319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88A65C2AA11FB7003B9319 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		1F131BD72AA63A9800F8308F /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
+		1F131BDB2AA63DC000F8308F /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		1F88A6552AA11FB7003B9319 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F88A6582AA11FB7003B9319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F88A65A2AA11FB7003B9319 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +84,17 @@
 		1F131BD92AA63D6300F8308F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1F131BDB2AA63DC000F8308F /* UIStackView + Extension.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		1F131BDA2AA63D9D00F8308F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1F131BD92AA63D6300F8308F /* UIKit */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		1F88A64C2AA11FB6003B9319 = {
@@ -105,7 +116,7 @@
 		1F88A6572AA11FB7003B9319 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				1F131BD92AA63D6300F8308F /* UIKit */,
+				1F131BDA2AA63D9D00F8308F /* Extension */,
 				1F131BD62AA63A1100F8308F /* Application */,
 				1F131BD52AA639F000F8308F /* Controller */,
 				1F131BD42AA639EA00F8308F /* View */,
@@ -188,6 +199,7 @@
 				1F131BD82AA63A9800F8308F /* MainStackView.swift in Sources */,
 				1F88A65D2AA11FB7003B9319 /* ViewController.swift in Sources */,
 				1F88A6592AA11FB7003B9319 /* AppDelegate.swift in Sources */,
+				1F131BDC2AA63DC000F8308F /* UIStackView + Extension.swift in Sources */,
 				1F88A65B2AA11FB7003B9319 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
