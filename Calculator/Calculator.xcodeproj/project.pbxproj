@@ -35,6 +35,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F131BD22AA6377600F8308F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1F88A6612AA11FB8003B9319 /* Assets.xcassets */,
+				1F88A6632AA11FB8003B9319 /* LaunchScreen.storyboard */,
+				1F88A6662AA11FB8003B9319 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		1F88A64C2AA11FB6003B9319 = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +67,7 @@
 				1F88A6582AA11FB7003B9319 /* AppDelegate.swift */,
 				1F88A65A2AA11FB7003B9319 /* SceneDelegate.swift */,
 				1F88A65C2AA11FB7003B9319 /* ViewController.swift */,
-				1F88A6612AA11FB8003B9319 /* Assets.xcassets */,
-				1F88A6632AA11FB8003B9319 /* LaunchScreen.storyboard */,
-				1F88A6662AA11FB8003B9319 /* Info.plist */,
+				1F131BD22AA6377600F8308F /* SupportingFiles */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -277,7 +285,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4753JN47ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = Calculator/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -307,7 +315,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4753JN47ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = Calculator/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
