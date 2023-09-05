@@ -55,4 +55,16 @@ class CalculationModel {
         currentNumber = ""
         currentOperation = .noAction
     }
+    
+    public func invertValue() {
+        guard let number = Double(currentNumber) else { return }
+        
+        if number > 0 {
+            currentNumber.insert("-", at: currentNumber.startIndex)
+        } else if number < 0 {
+            currentNumber.remove(at: currentNumber.startIndex)
+        } else {
+            return
+        }
+    }
 }

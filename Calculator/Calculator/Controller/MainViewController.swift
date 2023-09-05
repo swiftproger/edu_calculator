@@ -62,7 +62,8 @@ extension MainViewController: MainStackViewProtocol {
         case 16: //%
             print(tag)
         case 17: //+/-
-            print(tag)
+            calculationModel.invertValue()
+            resultLabel.text =  calculationModel.getCurrentNumber()
         case 18: //AC
             calculationModel.resetValue()
             resultLabel.text = "0"
