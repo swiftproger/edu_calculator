@@ -8,7 +8,7 @@
 import Foundation
 
 class CalculationModel {
-   
+    
     private var firstNumber = 0.0
     private var secondNumber = 0.0
     private var currentNumber = ""
@@ -34,9 +34,9 @@ class CalculationModel {
         secondNumber = number
         
         switch currentOperation {
-            
         case .noAction:
             print("noAction")
+            return "0"
         case .addition:
             return String(firstNumber + secondNumber)
         case .subtraction:
@@ -44,9 +44,15 @@ class CalculationModel {
         case .multiplication:
             return String(firstNumber * secondNumber)
         case .division:
+            guard secondNumber != 0 else { return "Не определено" }
             return String(firstNumber / secondNumber)
         }
-        return "0"
     }
     
+    public func resetValue() {
+        firstNumber = 0
+        secondNumber = 0
+        currentNumber = ""
+        currentOperation = .noAction
+    }
 }
