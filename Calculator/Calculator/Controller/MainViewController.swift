@@ -23,6 +23,8 @@ class MainViewController: UIViewController {
 
     private let mainStackView = MainStackView()
     
+    private let calculationModel = CalculationModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -33,6 +35,39 @@ class MainViewController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(resultLabel)
         view.addSubview(mainStackView)
+        mainStackView.delegate = self
+    }
+}
+
+extension MainViewController: MainStackViewProtocol {
+    func tapNumberButton(tag: Int) {
+        calculationModel.setNumber(number: tag)
+        resultLabel.text =  calculationModel.getCurrentNumber()
+    }
+    
+    func tapActionButton(tag: Int) {
+        switch tag {
+        case 10: //.
+            print(tag)
+        case 11: // =
+            resultLabel.text = calculationModel.getResult()
+        case 12: //+
+            calculationModel.setOperation(operation: .addition)
+        case 13: //-
+            calculationModel.setOperation(operation: .subtraction)
+        case 14: //*
+            calculationModel.setOperation(operation: .multiplication)
+        case 15: // /
+            calculationModel.setOperation(operation: .division)
+        case 16: //%
+            print(tag)
+        case 17: //+/-
+            print(tag)
+        case 18: //AC
+            calculationModel.resetValue()
+            resultLabel.text = "0"
+        default: return
+        }
     }
 }
 
