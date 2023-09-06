@@ -48,7 +48,8 @@ extension MainViewController: MainStackViewProtocol {
     func tapActionButton(tag: Int) {
         switch tag {
         case 10: //.
-            print(tag)
+            calculationModel.addPoint()
+            resultLabel.text =  calculationModel.getCurrentNumber()
         case 11: // =
             resultLabel.text = calculationModel.getResult()
         case 12: //+

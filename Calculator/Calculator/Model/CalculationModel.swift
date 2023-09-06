@@ -67,4 +67,8 @@ class CalculationModel {
             return
         }
     }
+    
+    public func addPoint() {
+        currentNumber += currentNumber != "" ? "." : "0."
+    }
 }
