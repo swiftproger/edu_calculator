@@ -44,7 +44,7 @@ class CalculationModel {
         currentNumber = ""
         currentOperation = operation
         
-        return String(firstNumber)
+        return firstNumber.stringWithoutZeroFraction
     }
     
     public func getResult() -> String {
