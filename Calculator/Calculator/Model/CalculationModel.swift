@@ -48,6 +48,7 @@ class CalculationModel {
     }
     
     public func getResult() -> String {
+        // TODO: Исправить, при вводе значении с точкой и нажатии =, значение пропадает.
         guard let number = Double(currentNumber) else { return "" }
         secondNumber = number
         
@@ -55,7 +56,7 @@ class CalculationModel {
         
         switch currentOperation {
         case .noAction:
-            result = 0
+            result = number
         case .addition:
             result = firstNumber + secondNumber
         case .subtraction:
