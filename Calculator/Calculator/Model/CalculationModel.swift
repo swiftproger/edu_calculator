@@ -15,6 +15,15 @@ class CalculationModel {
     private var currentOperation = OperationModel.noAction
     
     public func setNumber(number: Int) {
+        
+        if number != 0 && currentNumber == "0" {
+            currentNumber.removeFirst()
+        }
+        
+        if number == 0 && currentNumber == "0" {
+            currentNumber.removeLast()
+        }
+        
         currentNumber.append(String(number))
     }
     
@@ -22,11 +31,20 @@ class CalculationModel {
         currentNumber
     }
     
-    public func setOperation(operation: OperationModel) {
-        guard let number = Double(currentNumber) else { return }
-        firstNumber = number
+    public func setOperation(operation: OperationModel) -> String {
+        
+        if currentOperation == .noAction {
+            guard let number = Double(currentNumber) else { return "" }
+            firstNumber = number
+        } else {
+            guard let result = Double(getResult()) else { return "" }
+            firstNumber = result
+        }
+        
         currentNumber = ""
         currentOperation = operation
+        
+        return String(firstNumber)
     }
     
     public func getResult() -> String {

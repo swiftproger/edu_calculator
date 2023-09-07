@@ -53,13 +53,13 @@ extension MainViewController: MainStackViewProtocol {
         case 11: // =
             resultLabel.text = calculationModel.getResult()
         case 12: //+
-            calculationModel.setOperation(operation: .addition)
+            resultLabel.text = calculationModel.setOperation(operation: .addition)
         case 13: //-
-            calculationModel.setOperation(operation: .subtraction)
+            resultLabel.text = calculationModel.setOperation(operation: .subtraction)
         case 14: //*
-            calculationModel.setOperation(operation: .multiplication)
+            resultLabel.text = calculationModel.setOperation(operation: .multiplication)
         case 15: // /
-            calculationModel.setOperation(operation: .division)
+            resultLabel.text = calculationModel.setOperation(operation: .division)
         case 16: //%
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
