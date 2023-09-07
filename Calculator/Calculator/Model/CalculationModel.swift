@@ -21,6 +21,8 @@ class CalculationModel {
             historyNumber += "\(tag)"
         case 12...15:
             historyNumber += currentOperation.rawValue
+        case 17:
+            setInvertHistoryValue()
         default:
             print("error history tag")
         }
@@ -92,14 +94,35 @@ class CalculationModel {
     }
     
     public func invertValue() {
+        guard let number = Double(currentNumber) else {
+            currentNumber = "0"
+            return
+        }
+        
+        switch number {
+        case ..<0:
+            currentNumber.remove(at: currentNumber.startIndex)
+        case 0: break
+        case 0...:
+            currentNumber.insert("-", at: currentNumber.startIndex)
+        default:
+            print("error invert value")
+        }
+    }
+    
+    private func setInvertHistoryValue() {
         guard let number = Double(currentNumber) else { return }
         
-        if number > 0 {
-            currentNumber.insert("-", at: currentNumber.startIndex)
-        } else if number < 0 {
-            currentNumber.remove(at: currentNumber.startIndex)
-        } else {
-            return
+        switch number {
+        case ..<0:
+            let index = historyNumber.index(historyNumber.endIndex, offsetBy: -2)
+            historyNumber.remove(at: index)
+        case 0: break
+        case 0...:
+            let index = historyNumber.index(before: historyNumber.endIndex)
+            historyNumber.insert("-", at: index)
+        default:
+            print("invert history error")
         }
     }
     

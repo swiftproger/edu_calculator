@@ -82,6 +82,7 @@ extension MainViewController: MainStackViewProtocol {
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
         case 17: //+/-
+            historyLabel.text = calculationModel.getHistory(tag: tag)
             calculationModel.invertValue()
             resultLabel.text = calculationModel.getCurrentNumber()
         case 18: //AC
