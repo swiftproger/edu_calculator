@@ -89,7 +89,8 @@ class CalculationModel {
     }
     
     public func addPoint() {
-        currentNumber += currentNumber != "" ? "." : "0."
+        guard !currentNumber.contains(",") else { return }
+        currentNumber += currentNumber != "" ? "," : "0,"
     }
     
     public func setPercentNumber() {
