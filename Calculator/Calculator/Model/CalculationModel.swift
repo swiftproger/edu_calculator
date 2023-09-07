@@ -56,14 +56,14 @@ class CalculationModel {
             print("noAction")
             return "0"
         case .addition:
-            return String(firstNumber + secondNumber)
+            return (firstNumber + secondNumber).stringWithoutZeroFraction
         case .subtraction:
-            return String(firstNumber - secondNumber)
+            return (firstNumber - secondNumber).stringWithoutZeroFraction
         case .multiplication:
-            return String(firstNumber * secondNumber)
+            return (firstNumber * secondNumber).stringWithoutZeroFraction
         case .division:
             guard secondNumber != 0 else { return "Не определено" }
-            return String(firstNumber / secondNumber)
+            return (firstNumber / secondNumber).stringWithoutZeroFraction
         }
     }
     
