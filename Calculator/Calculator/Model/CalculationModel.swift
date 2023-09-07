@@ -71,4 +71,14 @@ class CalculationModel {
     public func addPoint() {
         currentNumber += currentNumber != "" ? "." : "0."
     }
+    
+    public func setPercentNumber() {
+        guard let number = Double(currentNumber) else { return }
+        
+        if firstNumber == 0 {
+            currentNumber = "\(number / 100)"
+        } else {
+            currentNumber = "\(firstNumber * number / 100)"
+        }
+    }
 }

@@ -61,10 +61,11 @@ extension MainViewController: MainStackViewProtocol {
         case 15: // /
             calculationModel.setOperation(operation: .division)
         case 16: //%
-            print(tag)
+            calculationModel.setPercentNumber()
+            resultLabel.text = calculationModel.getCurrentNumber()
         case 17: //+/-
             calculationModel.invertValue()
-            resultLabel.text =  calculationModel.getCurrentNumber()
+            resultLabel.text = calculationModel.getCurrentNumber()
         case 18: //AC
             calculationModel.resetValue()
             resultLabel.text = "0"
