@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum OperationModel {
-    case noAction
-    case addition
-    case subtraction
-    case multiplication
-    case division
+enum OperationModel: String {
+    case noAction = ""
+    case addition = "+"
+    case subtraction = "-"
+    case multiplication = "*"
+    case division = "/"
 }

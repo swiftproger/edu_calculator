@@ -9,10 +9,23 @@ import Foundation
 
 class CalculationModel {
     
-    private var firstNumber = 0.0
-    private var secondNumber = 0.0
-    private var currentNumber = ""
-    private var currentOperation = OperationModel.noAction
+    private var firstNumber: Double = 0.0
+    private var secondNumber: Double = 0.0
+    private var currentNumber: String = ""
+    private var historyNumber: String = ""
+    private var currentOperation: OperationModel  = .noAction
+    
+    public func getHistory(tag: Int) -> String {
+        switch tag {
+        case 0...9:
+            historyNumber += "\(tag)"
+        case 12...15:
+            historyNumber += currentOperation.rawValue
+        default:
+            print("error history tag")
+        }
+        return historyNumber
+    }
     
     public func setNumber(number: Int) {
         
@@ -74,6 +87,7 @@ class CalculationModel {
         firstNumber = 0
         secondNumber = 0
         currentNumber = ""
+        historyNumber = ""
         currentOperation = .noAction
     }
     

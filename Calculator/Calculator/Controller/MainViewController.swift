@@ -20,6 +20,18 @@ class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let historyLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = .boldSystemFont(ofSize: 30)
+        label.textColor = .gray
+        label.textAlignment = .right
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.3
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     private let mainStackView = MainStackView()
     
@@ -35,6 +47,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(resultLabel)
         view.addSubview(mainStackView)
+        view.addSubview(historyLabel)
         mainStackView.delegate = self
     }
 }
@@ -42,24 +55,29 @@ class MainViewController: UIViewController {
 extension MainViewController: MainStackViewProtocol {
     func tapNumberButton(tag: Int) {
         calculationModel.setNumber(number: tag)
-        resultLabel.text =  calculationModel.getCurrentNumber()
+        resultLabel.text = calculationModel.getCurrentNumber()
+        historyLabel.text = calculationModel.getHistory(tag: tag)
     }
     
     func tapActionButton(tag: Int) {
         switch tag {
         case 10: //.
             calculationModel.addPoint()
-            resultLabel.text =  calculationModel.getCurrentNumber()
+            resultLabel.text = calculationModel.getCurrentNumber()
         case 11: // =
             resultLabel.text = calculationModel.getResult()
         case 12: //+
             resultLabel.text = calculationModel.setOperation(operation: .addition)
+            historyLabel.text = calculationModel.getHistory(tag: tag)
         case 13: //-
             resultLabel.text = calculationModel.setOperation(operation: .subtraction)
+            historyLabel.text = calculationModel.getHistory(tag: tag)
         case 14: //*
             resultLabel.text = calculationModel.setOperation(operation: .multiplication)
+            historyLabel.text = calculationModel.getHistory(tag: tag)
         case 15: // /
             resultLabel.text = calculationModel.setOperation(operation: .division)
+            historyLabel.text = calculationModel.getHistory(tag: tag)
         case 16: //%
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
@@ -69,6 +87,7 @@ extension MainViewController: MainStackViewProtocol {
         case 18: //AC
             calculationModel.resetValue()
             resultLabel.text = "0"
+            historyLabel.text = "0"
         default: return
         }
     }
@@ -82,9 +101,14 @@ extension MainViewController {
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 1),
             
-            resultLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -10),
+            historyLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -10),
+            historyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            historyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            resultLabel.bottomAnchor.constraint(equalTo: historyLabel.topAnchor, constant: -10),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
         ])
     }
 }
