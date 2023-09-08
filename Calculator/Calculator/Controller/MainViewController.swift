@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let mainStackView = MainStackView()
     
     private let calculationModel = CalculationModel()
@@ -61,33 +61,33 @@ extension MainViewController: MainStackViewProtocol {
     
     func tapActionButton(tag: Int) {
         switch tag {
-        case 10: //.
+        case 10: // .
             historyLabel.text = calculationModel.getHistory(tag: tag)
             calculationModel.addPoint()
             resultLabel.text = calculationModel.getCurrentNumber()
         case 11: // =
             resultLabel.text = calculationModel.getResult()
-        case 12: //+
+        case 12: // +
             resultLabel.text = calculationModel.setOperation(operation: .addition)
             historyLabel.text = calculationModel.getHistory(tag: tag)
-        case 13: //-
+        case 13: // -
             resultLabel.text = calculationModel.setOperation(operation: .subtraction)
             historyLabel.text = calculationModel.getHistory(tag: tag)
-        case 14: //*
+        case 14: // *
             resultLabel.text = calculationModel.setOperation(operation: .multiplication)
             historyLabel.text = calculationModel.getHistory(tag: tag)
         case 15: // /
             resultLabel.text = calculationModel.setOperation(operation: .division)
             historyLabel.text = calculationModel.getHistory(tag: tag)
-        case 16: //%
+        case 16: // %
             historyLabel.text = calculationModel.getHistory(tag: tag)
             calculationModel.setPercentNumber()
             resultLabel.text = calculationModel.getCurrentNumber()
-        case 17: //+/-
+        case 17: // +/-
             historyLabel.text = calculationModel.getHistory(tag: tag)
             calculationModel.invertValue()
             resultLabel.text = calculationModel.getCurrentNumber()
-        case 18: //AC
+        case 18: // AC
             calculationModel.resetValue()
             resultLabel.text = "0"
             historyLabel.text = "0"
@@ -110,8 +110,7 @@ extension MainViewController {
             
             resultLabel.bottomAnchor.constraint(equalTo: historyLabel.topAnchor, constant: -10),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            
+            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }

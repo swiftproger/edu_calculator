@@ -65,8 +65,7 @@ class CalculationModel {
     public func setOperation(operation: OperationModel) -> String {
         
         if currentOperation == .noAction {
-            // TODO: Вынести в отдельный метод, и проверять наличие запятой, так как неможет преобразовать в Double
-            guard let number = Double(currentNumber) else { return "" }
+            guard let number = Double(currentNumber.stringWithDot) else { return "0" }
             firstNumber = number
         } else {
             guard let result = Double(getResult()) else {
@@ -83,8 +82,7 @@ class CalculationModel {
     }
     
     public func getResult() -> String {
-        // TODO: Исправить, при вводе значении с точкой и нажатии =, значение пропадает.
-        guard let number = Double(currentNumber) else { return "" }
+        guard let number = Double(currentNumber.stringWithDot) else { return "" }
         secondNumber = number
         
         var result = 0.0
@@ -104,6 +102,10 @@ class CalculationModel {
         }
         return result.stringWithoutZeroFraction.stringWithPoint
     }
+    
+    /**
+     Reset All value (Button AC )
+     */
     
     public func resetValue() {
         firstNumber = 0
