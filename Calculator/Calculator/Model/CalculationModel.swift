@@ -25,16 +25,12 @@ class CalculationModel {
             }
         case 12 ... 15:
             guard let last = historyNumber.last else { break }
-            if last != "+" ||
-                last != "-" ||
-                last != "*" ||
-                last != "/"
-            {
+
+            if last == "+" || last == "-" || last == "*" || last == "/" {
                 historyNumber.removeLast()
             }
 
             historyNumber += currentOperation.rawValue
-
         case 16:
             historyNumber += "%"
         case 17:
