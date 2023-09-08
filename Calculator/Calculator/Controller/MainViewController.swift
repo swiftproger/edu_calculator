@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Calculator
 //
 //  Created by Александр Новиков on 31.08.2023.
@@ -8,7 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
@@ -20,7 +19,7 @@ class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let historyLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -32,17 +31,17 @@ class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let mainStackView = MainStackView()
-    
+
     private let calculationModel = CalculationModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setConstraints()
     }
-    
+
     private func setupViews() {
         view.backgroundColor = .black
         view.addSubview(resultLabel)
@@ -58,7 +57,7 @@ extension MainViewController: MainStackViewProtocol {
         resultLabel.text = calculationModel.getCurrentNumber()
         historyLabel.text = calculationModel.getHistory(tag: tag)
     }
-    
+
     func tapActionButton(tag: Int) {
         switch tag {
         case 10: // .
@@ -103,14 +102,14 @@ extension MainViewController {
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             mainStackView.heightAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 1),
-            
+
             historyLabel.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -10),
             historyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             historyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            
+
             resultLabel.bottomAnchor.constraint(equalTo: historyLabel.topAnchor, constant: -10),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
     }
 }

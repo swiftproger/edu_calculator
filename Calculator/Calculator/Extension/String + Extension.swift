@@ -9,10 +9,10 @@ import Foundation
 
 extension String {
     var stringWithPoint: String {
-        self.contains(".") ? self.replacingOccurrences(of: ".", with: ",") : self
+        contains(".") ? replacingOccurrences(of: ".", with: ",") : self
     }
-    
+
     var stringWithDot: String {
-        self.contains(",") ? self.replacingOccurrences(of: ",", with: ".") : self
+        contains(",") ? replacingOccurrences(of: ",", with: ".") : self
     }
 }

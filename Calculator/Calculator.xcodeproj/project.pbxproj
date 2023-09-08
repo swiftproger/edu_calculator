@@ -103,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				1F131BE12AAA344500F8308F /* Double + Extensions.swift */,
-				1F131BD92AA63D6300F8308F /* UIKit */,
 				1F131BE32AAA657000F8308F /* String + Extension.swift */,
+				1F131BD92AA63D6300F8308F /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -128,12 +128,12 @@
 		1F88A6572AA11FB7003B9319 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				1F131BDA2AA63D9D00F8308F /* Extension */,
 				1F131BD62AA63A1100F8308F /* Application */,
 				1F131BD52AA639F000F8308F /* Controller */,
-				1F131BD42AA639EA00F8308F /* View */,
+				1F131BDA2AA63D9D00F8308F /* Extension */,
 				1F131BD32AA639E000F8308F /* Model */,
 				1F131BD22AA6377600F8308F /* SupportingFiles */,
+				1F131BD42AA639EA00F8308F /* View */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -149,6 +149,7 @@
 				1F88A6522AA11FB7003B9319 /* Frameworks */,
 				1F88A6532AA11FB7003B9319 /* Resources */,
 				1F131BE52AAB1DC300F8308F /* swiftlint */,
+				1F131BE62AAB29AE00F8308F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -223,6 +224,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+		1F131BE62AAB29AE00F8308F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
