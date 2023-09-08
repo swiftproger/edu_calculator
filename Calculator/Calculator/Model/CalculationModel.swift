@@ -19,8 +19,24 @@ class CalculationModel {
         switch tag {
         case 0...9:
             historyNumber += "\(tag)"
+        case 10:
+            let index = historyNumber.index(before: historyNumber.endIndex)
+            if historyNumber[index] != "," {
+                historyNumber += ","
+            }
         case 12...15:
-            historyNumber += currentOperation.rawValue
+            guard let last = historyNumber.last else { break }
+            if last != "+" &&
+                last != "-" &&
+                last != "*" &&
+                last != "/" {
+                historyNumber += currentOperation.rawValue
+            } else {
+                historyNumber.removeLast()
+                historyNumber += currentOperation.rawValue
+            }
+        case 16:
+            historyNumber += "%"
         case 17:
             setInvertHistoryValue()
         default:
@@ -49,10 +65,14 @@ class CalculationModel {
     public func setOperation(operation: OperationModel) -> String {
         
         if currentOperation == .noAction {
+            // TODO: Вынести в отдельный метод, и проверять наличие запятой, так как неможет преобразовать в Double
             guard let number = Double(currentNumber) else { return "" }
             firstNumber = number
         } else {
-            guard let result = Double(getResult()) else { return "" }
+            guard let result = Double(getResult()) else {
+                currentOperation = operation
+                return firstNumber.stringWithoutZeroFraction.stringWithPoint
+            }
             firstNumber = result
         }
         
