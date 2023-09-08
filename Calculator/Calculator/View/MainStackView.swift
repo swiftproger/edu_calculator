@@ -50,8 +50,12 @@ class MainStackView: UIStackView {
     }
     
     @objc
-    private func keyboardButtonTapped(sender: UIButton) {
-        sender.tag < 10 ? delegate?.tapNumberButton(tag: sender.tag) : delegate?.tapActionButton(tag: sender.tag)
+    private func keyboardButtonTapped(sender: UIButton) {        
+        if sender.tag < 10 {
+            delegate?.tapNumberButton(tag: sender.tag)
+        } else {
+            delegate?.tapActionButton(tag: sender.tag)
+        }
     }
     
     private func setupMainStackView() {
