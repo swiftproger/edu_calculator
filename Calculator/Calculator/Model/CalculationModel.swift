@@ -14,6 +14,9 @@ class CalculationModel {
     private var historyNumber: String = ""
     private var currentOperation: OperationModel = .noAction
 
+    /**
+     Get history
+     */
     public func getHistory(tag: Int) -> String {
         switch tag {
         case 0 ... 9:
@@ -40,7 +43,10 @@ class CalculationModel {
         }
         return historyNumber
     }
-
+    
+    /**
+     Set number (Button 0-9)
+     */
     public func setNumber(number: Int) {
         if number != 0, currentNumber == "0" {
             currentNumber.removeFirst()
@@ -56,7 +62,10 @@ class CalculationModel {
     public func getCurrentNumber() -> String {
         currentNumber.stringWithPoint
     }
-
+    
+    /**
+     Set operation (Button "-", "+", "*", "/",)
+     */
     public func setOperation(operation: OperationModel) -> String {
         if currentOperation == .noAction {
             guard let number = Double(currentNumber.stringWithDot) else { return "0" }
@@ -74,7 +83,10 @@ class CalculationModel {
 
         return firstNumber.stringWithoutZeroFraction
     }
-
+    
+    /**
+     Get result
+     */
     public func getResult() -> String {
         guard let number = Double(currentNumber.stringWithDot) else { return "" }
         secondNumber = number
@@ -100,7 +112,6 @@ class CalculationModel {
     /**
      Reset All value (Button AC )
      */
-
     public func resetValue() {
         firstNumber = 0
         secondNumber = 0
@@ -109,6 +120,9 @@ class CalculationModel {
         currentOperation = .noAction
     }
 
+    /**
+     Invert value (Button +\- )
+     */
     public func invertValue() {
         guard let number = Double(currentNumber) else {
             currentNumber = "0"
@@ -125,7 +139,10 @@ class CalculationModel {
             print("error invert value")
         }
     }
-
+    
+    /**
+     Set invert history value
+     */
     private func setInvertHistoryValue() {
         guard let number = Double(currentNumber) else { return }
 
@@ -142,11 +159,17 @@ class CalculationModel {
         }
     }
 
+    /**
+     Add point
+     */
     public func addPoint() {
         guard !currentNumber.contains(",") else { return }
         currentNumber += currentNumber != "" ? "," : "0,"
     }
 
+    /**
+     Set percent number (Button %)
+     */
     public func setPercentNumber() {
         guard let number = Double(currentNumber) else { return }
 
