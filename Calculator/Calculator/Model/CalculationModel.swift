@@ -43,7 +43,7 @@ class CalculationModel {
         }
         return historyNumber
     }
-    
+
     /**
      Set number (Button 0-9)
      */
@@ -62,7 +62,7 @@ class CalculationModel {
     public func getCurrentNumber() -> String {
         currentNumber.stringWithPoint
     }
-    
+
     /**
      Set operation (Button "-", "+", "*", "/",)
      */
@@ -83,7 +83,7 @@ class CalculationModel {
 
         return firstNumber.stringWithoutZeroFraction
     }
-    
+
     /**
      Get result
      */
@@ -139,7 +139,7 @@ class CalculationModel {
             print("error invert value")
         }
     }
-    
+
     /**
      Set invert history value
      */
