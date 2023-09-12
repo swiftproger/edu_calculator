@@ -8,11 +8,11 @@
 import Foundation
 
 class CalculationModel {
-    private var firstNumber: Double = 0.0
-    private var secondNumber: Double = 0.0
-    private var currentNumber: String = ""
-    private var historyNumber: String = ""
-    private var currentOperation: OperationModel = .noAction
+    private(set) var firstNumber: Double = 0.0
+    private(set) var secondNumber: Double = 0.0
+    private(set) var currentNumber: String = ""
+    private(set) var historyNumber: String = ""
+    private(set) var currentOperation: OperationModel = .noAction
 
     /**
      Get history
