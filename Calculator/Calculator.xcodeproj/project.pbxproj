@@ -47,6 +47,7 @@
 		1F88A6612AA11FB8003B9319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F88A6642AA11FB8003B9319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F88A6662AA11FB8003B9319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FFF4A0F2AB0FE8700F21268 /* Calculator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Calculator.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 		1F41BC362AAB7C7500594C30 /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				1FFF4A0F2AB0FE8700F21268 /* Calculator.xctestplan */,
 				1F41BC372AAB7C7500594C30 /* CalculatorTests.swift */,
 			);
 			path = CalculatorTests;
